@@ -112,6 +112,7 @@ amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
 
 
 ## 名词解释
++ [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
 + [DAU](https://www.zhihu.com/question/24007425):日活(Daily Active Users)，单日活跃用户量，反应产品短期用户活跃度
 + [MAU]:月活(Monthly Active Users)，单月活跃用户量，反应产品长期用户活跃度
 + [pv and uv](https://www.zhihu.com/question/20448467):
@@ -121,8 +122,8 @@ amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
   
 + [A/B测试](https://www.zhihu.com/question/20045543):通常会设置两个base组，多个exp组 
 + [GMV](https://en.wikipedia.org/wiki/Gross_merchandise_volume): Gross Merchandise Volume，是成交总额（一定时间段内）的意思。
-+ 回流: 
-+ 漏斗模型:
++ [回流](https://www.zhihu.com/search?type=content&q=%E7%94%A8%E6%88%B7%E5%9B%9E%E6%B5%81%E8%A7%A3%E9%87%8A): 流失用户召回的一种叫法，也称“复活”、“唤醒”、“回流”等
++ [漏斗模型](https://zhuanlan.zhihu.com/p/29720621):是一个模型，更是一种可以普遍适用的方法论，或者说是一种思维方式
 + [异动归因](https://zhuanlan.zhihu.com/p/37530954):
   + 1. 启发式归因
     <br>顾名思义，启发式归因主要起启发作用，是一种快速分析方法。它使用简单的算法，计算各个触点、渠道对转化的贡献度。
