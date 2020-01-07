@@ -4,11 +4,12 @@ Study notes.
 ### 1.数据读取
 + 方式1：
 
-<html>  import pandas as pd
-    io = pd.io.excel.ExcelFile(r'D:\data\python\amazon_data.xlsx')
-    amazon_data = pd.read_excel(io,sheetname='data')
-    price = pd.read_excel(io,sheetname='price')
-    io.close()
+<html>  
+    <title>import pandas as pd</title>
+    <title>io = pd.io.excel.ExcelFile(r'D:\data\python\amazon_data.xlsx')</title>
+    <title>amazon_data = pd.read_excel(io,sheetname='data')</title>
+    <title>price = pd.read_excel(io,sheetname='price')</title>
+    <title>io.close()</title>
 </html>
 
 + 方式2：
