@@ -1,20 +1,22 @@
 # Data-analysis-and-mining
 Study notes. Most notes come from the internet. Just do a summary.
+##目录
+[TOC]
 ## 一、数据读取和存储(csv格式类似)
 ### 1.数据读取
 + 方式1：
 ```py
 import pandas as pd
 io = pd.io.excel.ExcelFile(r'D:\data\python\amazon_data.xlsx')
-amazon_data = pd.read_excel(io,sheetname='data')
-price = pd.read_excel(io,sheetname='price')
+amazon_data = pd.read_excel(io,sheet_name='data')
+price = pd.read_excel(io,sheet_name='price')
 io.close()
 ``` 
 + 方式2：
 ```py
 import pandas as pd
-amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
-price = pd.read_excel(r'amazon_data.xlsx',sheetname='price')
+amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data')
+price = pd.read_excel(r'amazon_data.xlsx',sheet_name='price')
 #ps:在数据量大、sheet多的情况下，方式1的速度大于方式2的速度
 ```
 
@@ -22,7 +24,7 @@ price = pd.read_excel(r'amazon_data.xlsx',sheetname='price')
 + 方式1:
 ```py
 import pandas as pd
-amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
+amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data')
 amazon_data.to_excel(r'D:\data\new.xlsx')  #存入D盘的data文件夹
 ```
 
@@ -38,7 +40,7 @@ writer.save()
 ## 二、数据的预览
 ```py
 import pandas as pd
-amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
+amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data')
 ```
 + 查看列名：amazon_data.columns
 + 查看行数列数：amazon_data.shape
