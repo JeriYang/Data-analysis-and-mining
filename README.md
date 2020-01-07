@@ -76,7 +76,8 @@ price = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='price')
 
 #数据清洗
 #字符串转日期
-amazon_data.loc[:,'日期date'] = amazon_data['Time'].apply(lambda x: datetime.datetime.strptime(x,'%Y/%m/%d %H:%M')) 
+amazon_data.loc[:,'日期date'] 
+= amazon_data['Time'].apply(lambda x: datetime.datetime.strptime(x,'%Y/%m/%d %H:%M')) 
 ```
 + 去除空格
 ```py
@@ -98,7 +99,8 @@ amazon_data.loc[:,'ProfileName分列'] = amazon_data['ProfileName'].str.split(' 
 amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
 #pd.merge(left=df1, right=df2, left_on=’key1’, right_on=’key2’, how=’left’)
 
-#left左表，right右表，left_on左表的连接键，right_on右表连接键，how是连接方式：左连left，右连right，外连outer，内连inner（默认）。
+#left左表，right右表，left_on左表的连接键，right_on右表连接键，
+#how是连接方式：左连left，右连right，外连outer，内连inner（默认）。
 ```
 合并表格，除了用merge，还有个方法是concat。concat可以纵向合并，也可以横向合并。
 <br>
