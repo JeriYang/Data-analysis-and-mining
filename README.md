@@ -1,11 +1,11 @@
 # Data-analysis-and-mining
 Study notes.
-## 数据读取和存储
+## 一、数据读取和存储
 ### 1.数据读取
 + 方式1：
 ```py
 import pandas as pd
-io = pd.io.excel.ExcelFile(r'D:\data\python\amazon-fine-foods\amazon_data.xlsx')
+io = pd.io.excel.ExcelFile(r'D:\data\python\amazon_data.xlsx')
 amazon_data = pd.read_excel(io,sheetname='data')
 price = pd.read_excel(io,sheetname='price')
 io.close()
@@ -34,3 +34,8 @@ amazon_data .to_excel(writer,sheet_name='data')
 price.to_excel(writer,sheet_name='price')
 writer.save()
 ```
+
+## 二、数据的预览
++ 查看列名：<p>amazon_data.columns<p>
++ 查看行数列数：<p>amazon_data.shape<p>
+
