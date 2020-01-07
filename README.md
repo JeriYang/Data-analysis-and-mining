@@ -21,7 +21,7 @@ io.close()
 ```py
 import pandas as pd
 amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data')
-price = pd.read_excel(r'amazon_data.xlsx',sheet_name='price')
+price = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='price')
 #ps:在数据量大、sheet多的情况下，方式1的速度大于方式2的速度
 ```
 
@@ -64,7 +64,46 @@ amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data'
 + 数据信息：amazon_data.info()   包含了每一列的个数、有无空值、数据格式、内存大小
 
 ## 数据的清洗
+格式修改、去除空格、替换、分列、合并
++ 字符串格式→日期格式
+```py
+#导入库
+import datetime
+import pandas as pd
+#读取数据
+amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
+price = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='price')
 
+#数据清洗
+#字符串转日期
+amazon_data.loc[:,'日期date'] = amazon_data['Time'].apply(lambda x: datetime.datetime.strptime(x,'%Y/%m/%d %H:%M')) 
+```
++ 去除空格
+```py
+#去除空格
+amazon_data.loc[:,'ProfileName无空格'] = amazon_data['ProfileName'].str.replace(' ','')
 
+#方法2:
+amazon_data['ProfileName'].str.strip(' ')
+```
++ 分列
+```py
+#数据分列
+amazon_data.loc[:,'ProfileName分列'] = amazon_data['ProfileName'].str.split(' ').str[0]
+```
+
++ 合并
+```py
+#合并
+amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
+#pd.merge(left=df1, right=df2, left_on=’key1’, right_on=’key2’, how=’left’)
+
+#left左表，right右表，left_on左表的连接键，right_on右表连接键，how是连接方式：左连left，右连right，外连outer，内连inner（默认）。
+```
+合并表格，除了用merge，还有个方法是concat。concat可以纵向合并，也可以横向合并。
+<br>
+pd.concat([df1, df2] ) 纵向合并，即把df2的数据接到df1后面。
+<br>
+pd.concat([df1, df2], axis=1, join='inner') 横向合并，按索引取交集。
 
 
