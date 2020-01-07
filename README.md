@@ -102,10 +102,10 @@ amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
 #left左表，right右表，left_on左表的连接键，right_on右表连接键，
 #how是连接方式：左连left，右连right，外连outer，内连inner（默认）。
 ```
-合并表格，除了用merge，还有个方法是concat。concat可以纵向合并，也可以横向合并。
-<br>
-pd.concat([df1, df2] ) 纵向合并，即把df2的数据接到df1后面。
-<br>
-pd.concat([df1, df2], axis=1, join='inner') 横向合并，按索引取交集。
+  合并表格，除了用merge，还有个方法是concat。concat可以纵向合并，也可以横向合并。
+  <br>
+  pd.concat([df1, df2] ) 纵向合并，即把df2的数据接到df1后面。
+  <br>
+  pd.concat([df1, df2], axis=1, join='inner') 横向合并，按索引取交集。
 
 
