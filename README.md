@@ -2,12 +2,12 @@
 Study notes. Most notes come from the internet. Just do a summary.
 # 目录
 
-- [一、数据读取和存储](##一、数据读取和存储(csv格式类似))
-- [二、数据的预览](##二、数据的预览)
-- [三、数据的清洗](##三、数据的清洗)
+- [一、数据读取和存储](#数据读取和存储)
+- [二、数据的预览](#数据的预览)
+- [三、数据的清洗](#数据的清洗)
 
 
-## 一、数据读取和存储(csv格式类似)
+## 数据读取和存储
 ### 1.数据读取
 + 方式1：
 ```py
@@ -42,7 +42,7 @@ price.to_excel(writer,sheet_name='price')
 writer.save()
 ```
 
-## 二、数据的预览
+## 数据的预览
 ```py
 import pandas as pd
 amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data')
@@ -63,7 +63,7 @@ amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheet_name='data'
   + 包含了每一列的个数、均值、方差、最小值、最大值、分位数。如果查看某一列的，可以加上列的索引：amazon_data['Id'].describe()
 + 数据信息：amazon_data.info()   包含了每一列的个数、有无空值、数据格式、内存大小
 
-## 三、数据的清洗
+## 数据的清洗
 
 
 
