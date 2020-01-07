@@ -1,6 +1,6 @@
 # Data-analysis-and-mining
 Study notes. Most notes come from the internet. Just do a summary.
-## 一、数据读取和存储
+## 一、数据读取和存储(csv格式类似)
 ### 1.数据读取
 + 方式1：
 ```py
@@ -46,5 +46,18 @@ amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
 + 查看每列的数据格式：amazon_data.dtypes
 + 数据的索引：
   + 列的索引：amazon_data['Id']或者amazon_data.loc[:, 'Id'] 数据ID列
+  + 行的索引：amazon_data.loc[0, :] 读取第1行（Python的索引从0开始）
+  + 某行某列：amazon_data.loc[2, 'Id'] ID列的第3个
+  + 扩展
+    + 物理位置索引 amazon_data.iloc[ ]
+    + 第3行第5列，可以写 amazon_data.iloc[ 2, 4 ]，注意索引都是从0开始的
+    + 多行多列，可用 amazon_data.iloc[ 2:8, 1:3]，python切片('https://blog.csdn.net/slvher/article/details/44703185')
++ 数据描述：amazon_data.describe()
+  + 包含了每一列的个数、均值、方差、最小值、最大值、分位数。如果查看某一列的，可以加上列的索引：amazon_data['Id'].describe()
++ 数据信息：amazon_data.info()   包含了每一列的个数、有无空值、数据格式、内存大小
+
+
+
+
 
 
