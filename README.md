@@ -3,13 +3,13 @@ Study notes.
 
 ### 1.数据读取
 + 方式1：
-
+'''py
     import pandas as pd
     io = pd.io.excel.ExcelFile(r'D:\data\python\amazon-fine-foods\amazon_data.xlsx')
     amazon_data = pd.read_excel(io,sheetname='data')
     price = pd.read_excel(io,sheetname='price')
     io.close()
-
+'''
 + 方式2：
 
     import pandas as pd
