@@ -1,5 +1,5 @@
 # Data-analysis-and-mining
-Study notes.
+Study notes. Most notes come from the internet. Just do a summary.
 ## 一、数据读取和存储
 ### 1.数据读取
 + 方式1：
@@ -36,6 +36,15 @@ writer.save()
 ```
 
 ## 二、数据的预览
-+ 查看列名：<p>amazon_data.columns<p>
-+ 查看行数列数：<p>amazon_data.shape<p>
+```py
+import pandas as pd
+amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
+```
++ 查看列名：amazon_data.columns
++ 查看行数列数：amazon_data.shape
++ 查看前5行/后5行数据： amazon_data.head(5)、amazon_data.tail(5)
++ 查看每列的数据格式：amazon_data.dtypes
++ 数据的索引：
+  + 列的索引：amazon_data['Id']或者amazon_data.loc[:, 'Id'] 数据ID列
+
 
