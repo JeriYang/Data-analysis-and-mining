@@ -1,7 +1,12 @@
 # Data-analysis-and-mining
 Study notes. Most notes come from the internet. Just do a summary.
-##目录
-[TOC]
+# 目录
+
+- [一、数据读取和存储](# 一、数据读取和存储(csv格式类似))
+- [二、数据的预览](# 二、数据的预览)
+- [三、数据的清洗](# 三、数据的清洗)
+
+
 ## 一、数据读取和存储(csv格式类似)
 ### 1.数据读取
 + 方式1：
