@@ -1,5 +1,5 @@
 # Data-analysis-and-mining
-Study notes. Most notes come from the internet. Just do a summary.
+Study notes. Most notes come from the internet. Just do a summary.一位数据分析，数据挖掘师的成长笔记
 # 目录
 
 - [一、数据读取和存储](#数据读取和存储)
@@ -112,29 +112,45 @@ amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
 
 
 ## 名词解释
-+ DAU:
-+ UV: ; PV:
-+ 埋点: 埋点捕获数据
-+ AB测试: 
-+ GMV: 
++ [DAU](https://www.zhihu.com/question/24007425):日活(Daily Active Users)，单日活跃用户量，反应产品短期用户活跃度
++ [MAU]:月活(Monthly Active Users)，单月活跃用户量，反应产品长期用户活跃度
++ [pv and uv](https://www.zhihu.com/question/20448467):
+<br>UV(Unique visitor):一个人（记录身份证号） ;<br> PV(Page View):人次（只认次数，不认人）
++ [埋点](https://www.zhihu.com/question/36411025): 埋点捕获数据<br>
+  埋点就是在应用中特定的流程收集一些信息，用来跟踪应用使用的状况，后续用来进一步优化产品或是提供运营的数据支撑<br>
+  
++ [A/B测试](https://www.zhihu.com/question/20045543):通常会设置两个base组，多个exp组 
++ [GMV](https://en.wikipedia.org/wiki/Gross_merchandise_volume): Gross Merchandise Volume，是成交总额（一定时间段内）的意思。
 + 回流: 
 + 漏斗模型:
-+ 异动归因:
++ [异动归因](https://zhuanlan.zhihu.com/p/37530954):
+  + 1. 启发式归因
+    <br>顾名思义，启发式归因主要起启发作用，是一种快速分析方法。它使用简单的算法，计算各个触点、渠道对转化的贡献度。
+  + 2. 算法归因
+    <br>利用统计或者机器学习方法分析各个触点对最终转化的影响程度。
+    <br>与启发式归因相比，它更加客观，不受到使用者偏好的影响。
+    <br>常见的算法有logistics回归、生存模型、probabilistic模型、markov模型等。
++ OR值
++ RR值
++ PAR
++ PAF
 + [拆分法（以及常用的方法)](https://zhuanlan.zhihu.com/p/52279855)
 + [Cvr转化率](https://baike.baidu.com/item/CVR/20215345)
 + ROI:
 + 成本利润率:
 + 销售利润率:
 + 投资回报率:
-+ dpa:
++ DPA:
++ OKR:
++ BI:
 
 ## 参考产品和思路
-+ 常见流程：
-  1.看数->报表->分析
++ 常见流程：<br>
+  1.看数->报表->分析<br>
   
-+ 分析思路:
-  1.判断，定位，原因
-  2.经营分析中注意：去节假日，去峰值，去活动日
++ 分析思路:<br>
+  1.判断，定位，原因<br>
+  2.经营分析中注意：去节假日，去峰值，去活动日<br>
 
 + 数据产品2019末更新:
   + 观星台
