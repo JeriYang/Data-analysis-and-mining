@@ -1,6 +1,9 @@
 # Data-analysis-and-mining
-Study notes. Most notes come from the internet. Just do a summary.一位数据分析，数据挖掘师的成长笔记
+Study notes. Most notes come from the internet and book. Just do a summary.一位数据分析，数据挖掘师的成长笔记
 # 目录
+- [理论学习](#理论学习)
+  - [一、数据分析理论](#数据分析理论)
+  - [二、统计学理论](#统计学理论)
 
 - [方法学习](#方法学习)
   - [一、数据读取和存储](#数据读取和存储)
@@ -10,7 +13,14 @@ Study notes. Most notes come from the internet. Just do a summary.一位数据�
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总](#推荐资料)
 # 理论学习
-## 数据分析
+## 数据分析理论
+### 1.分析流程
+<br>确定问题-->分解问题-->评估-->决策<br>
+
+## 统计学理论
+
+
+
 
 # 方法学习
 ## 数据读取和存储
