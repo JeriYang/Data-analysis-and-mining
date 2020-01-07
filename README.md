@@ -51,12 +51,12 @@ amazon_data = pd.read_excel(r'D:\data\python\amazon_data.xlsx',sheetname='data')
   + 扩展
     + 物理位置索引 amazon_data.iloc[ ]
     + 第3行第5列，可以写 amazon_data.iloc[ 2, 4 ]，注意索引都是从0开始的
-    + 多行多列，可用 amazon_data.iloc[ 2:8, 1:3]，python切片('https://blog.csdn.net/slvher/article/details/44703185')
+    + 多行多列，可用 amazon_data.iloc[ 2:8, 1:3]，[python切片](https://blog.csdn.net/slvher/article/details/44703185)
 + 数据描述：amazon_data.describe()
   + 包含了每一列的个数、均值、方差、最小值、最大值、分位数。如果查看某一列的，可以加上列的索引：amazon_data['Id'].describe()
 + 数据信息：amazon_data.info()   包含了每一列的个数、有无空值、数据格式、内存大小
 
-
+## 三、数据的清洗
 
 
 
