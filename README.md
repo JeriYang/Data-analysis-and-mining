@@ -9,6 +9,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.一�
   - [一、数据读取和存储](#数据读取和存储)
   - [二、数据的预览](#数据的预览)
   - [三、数据的清洗](#数据的清洗)
+  _ [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总](#推荐资料)
@@ -103,6 +104,29 @@ amazon_data.loc[:,'ProfileName无空格'] = amazon_data['ProfileName'].str.repla
 #方法2:
 amazon_data['ProfileName'].str.strip(' ')
 ```
+
++ 替换
+  + [正则表达式](https://docs.python.org/zh-cn/3/library/re.html)
+```py
+#1. df.replace(to_replace, value)
+#这样会搜索整个DataFrame, 并将所有符合条件的元素全部替换。
+#进行上述操作之后，其实原DataFrame是并没有改变的。改变的只是一个复制品。
+df.replace('A',0.1)
+
+#2.如果需要改变原数据，需要添加常用参数 inplace=True
+df.replace('A',0.1,inplace=True)
+
+#3.用列表/字典形式替换多个值。
+data['parent_id'].replace([2,3],'2~3',inplace=True) #列表
+df.replace({'C':1, 'D':2})#字典
+
+#4.使用正则表达式替换多个(个人觉得在用于数字时不好用)
+df.replace('[A-Z]',0.1,regex=True)
+
+#5.批量替换数字
+
+```
+
 + 分列
 ```py
 #数据分列
@@ -124,7 +148,46 @@ amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
   <br>
   pd.concat([df1, df2], axis=1, join='inner') 横向合并，按索引取交集。
 
+## 常用格式转换
++ 1.list to others
+```py
+# list
+data = [[2000, 'Ohino', 1.5],
+        [2001, 'Ohino', 1.7]]  # type(data) 为 list
 
+# (1).list to pandas.series, data对应list,index对于单列时，可以没有
+import pandas as pd
+ser = pd.Series(data, index = ['one', 'two'])
+#单列数据拼接时：定义列名和数据
+df['new_name']=ser
+
+# (2).list to pandas.dataframe
+df = pd.DataFrame(data, index = ['one', 'two'], columns = ['year', 'state', 'pop'])
+
+# (3).list to numpy.ndarray
+import numpy as np
+ndarray = np.array(data)
+```
++ 2.ndarray to others
+```py
+# (1).array to dataframe, index为索引，columns为列名
+import pandas as pd
+pdNum = pd.DataFrame(ndarray, index = ['one', 'two'], columns = ['year', 'state', 'pop'])
+
+# (2).ndarray to list
+import numpy as np
+#定义一个numpy.ndarray
+array=np.array([1,2,3,4,5,6])
+#转为list
+list=array.tolist()
+
+```
++ 3.list to others
+```py
+```
++ 4.list to others
+```py
+```
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
 + [DAU](https://www.zhihu.com/question/24007425):日活(Daily Active Users)，单日活跃用户量，反应产品短期用户活跃度
