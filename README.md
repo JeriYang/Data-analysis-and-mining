@@ -124,7 +124,21 @@ df.replace({'C':1, 'D':2})#字典
 df.replace('[A-Z]',0.1,regex=True)
 
 #5.批量替换数字
+data.loc[data['parent_id'] > 200, 'parent_id'] = '>200' #筛选parent_id这一列，大于200的数替换为>200
 
+#eg:
+import pandas as pd
+data = pd.read_excel(r'additem.xlsx')
+#ps:在数据量大、sheet多的情况下，方式1的速度大于方式2的速度
+data.loc[data['parent_id'] > 200, 'parent_id'] = '>200'
+data['parent_id'].replace([2,3],'2~3',inplace=True)
+data['parent_id'].replace([i for i in range(4,11)],'4~10',inplace=True)
+data['parent_id'].replace([i for i in range(11,101)],'11~100',inplace=True)
+data['parent_id'].replace([i for i in range(101,201)],'101~200',inplace=True)
+
+print(data['parent_id'])
+
+data.to_excel(r'new4.xlsx')  #存入D盘的data文件夹
 ```
 
 + 分列
@@ -182,11 +196,42 @@ array=np.array([1,2,3,4,5,6])
 list=array.tolist()
 
 ```
-+ 3.list to others
++ 3.pd.DataFrame to others
 ```py
+# dataframe
+import pandas as pd
+data = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), columns=['a', 'b', 'c'])
+
+# (1).dataframe to array
+arr = data.values
+
+# (2).dataframe to dict 
+dict = data.to_dict()
+
+# (3).dataframe to list
+train_data = np.array(data) #np.ndarray()
+train_x_list=train_data.tolist() #list
+
 ```
-+ 4.list to others
++ 4.dict to others
 ```py
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+# dict
+data = { 'name': ['Li', 'Zhang', 'Wang'],
+         'year': [2000, 2001, 2002]}  # type(data) 为 dict
+         
+# (1) dict to series
+# 若不指定 index，data 的 key 充当 Series 的 index
+ser = Series(data)
+print('ser\n', ser)
+
+# (2) dict to dataframe
+# 若不指定 columns，data 的 key 充当 DataFrame 的 columns
+df = DataFrame(data)
+print('df\n', df)
 ```
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
