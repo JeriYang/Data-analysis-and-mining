@@ -9,7 +9,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.一�
   - [一、数据读取和存储](#数据读取和存储)
   - [二、数据的预览](#数据的预览)
   - [三、数据的清洗](#数据的清洗)
-  _ [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
+  - [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总](#推荐资料)
