@@ -328,7 +328,7 @@ plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
 
 + 直方图
 ```py
-#eg1:
+#eg1:横置直方图+随机展示
 import matplotlib.pyplot as plt
 import random
 
@@ -355,7 +355,7 @@ plt.show()
 ```
 
 ```py
-#eg2:
+#eg2:横置直方图+数据读取
 import matplotlib.pyplot as plt
 import pandas as pd
 # 中文乱码和坐标轴负号处理。
