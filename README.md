@@ -235,8 +235,8 @@ df = DataFrame(data)
 print('df\n', df)
 ```
 
-## 地图热力图
-<br>[链接](https://www.xz577.com/j/40495.html)<br>
+## [地图热力图](https://www.xz577.com/j/40495.html)
+[链接](https://www.xz577.com/j/40495.html)<br>
 + 1.首先安装对应的python模块
 ```
 $ pip install pyecharts==0.5.10
