@@ -11,6 +11,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.一�
   - [三、数据的清洗](#数据的清洗)
   - [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
   - [五、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
+  - [六、数据的可视化](#数据的可视化)
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总](#推荐资料)
@@ -303,6 +304,75 @@ geo = Geo("全国主要城市空气质量热力图", "data from pm2.5", title_co
  
 geo.add("空气质量热力图", keys, values, visual_range=[0, 5], type='effectScatter',visual_text_color="#fff", symbol_size=15,is_visualmap=True, is_roam=True) # type有scatter, effectScatter, heatmap三种模式可选，可根据自己的需求选择对应的图表模式
 geo.render(path="全国主要城市空气质量热力图.html")
+```
+## 数据的可视化
+python实现
++ 中文字体问题解决方法
+```py
+#1.查询matplotlib系统中文字体
+from matplotlib.font_manager import fontManager
+import os
+
+fonts = [font.name for font in fontManager.ttflist if
+         os.path.exists(font.fname) and os.stat(font.fname).st_size > 1e6]
+
+for font in fonts:
+    print(font)
+
+#2.设置plot
+# 中文乱码和坐标轴负号处理。
+import matplotlib.pyplot as plt
+plt.rcParams['font.sans-serif']=['Heiti TC'] #用来正常显示中文标签, 这里Heiti TC为mac的黑体
+plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
+```
+
++ 直方图
+```py
+#eg1:
+import matplotlib.pyplot as plt
+import random
+
+# 中文乱码和坐标轴负号处理。
+plt.rcParams['font.sans-serif']=['Heiti TC'] #用来正常显示中文标签
+plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
+
+city_name = [u'北京', u'上海', u'广州', u'深圳', u'成都']
+city_name.reverse()
+
+data = []
+for i in range(len(city_name)):
+    data.append(random.randint(100, 200))
+
+colors = ['red', 'yellow', 'blue', 'green', 'gray']
+colors.reverse()
+
+plt.barh(range(len(data)), data, tick_label=city_name, color=colors)
+
+# 不要X横坐标标签。
+# plt.xticks(())
+
+plt.show()
+```
+
+```py
+#eg2:
+import matplotlib.pyplot as plt
+import pandas as pd
+# 中文乱码和坐标轴负号处理。
+plt.rcParams['font.sans-serif']=['Heiti TC'] #用来正常显示中文标签
+plt.rcParams['axes.unicode_minus']=False #用来正常显示负号
+
+data = pd.read_excel(r'data1.xlsx')
+name = data['大洲'].tolist()
+num = data['销量'].tolist()
+
+plt.title(u'各州销量')
+plt.xlabel(u'大洲')
+plt.ylabel(u'销量')
+
+plt.barh(range(len(num)), num, tick_label=name)
+
+plt.show()
 ```
 
 ## 名词解释
