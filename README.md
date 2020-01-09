@@ -18,12 +18,12 @@ Study notes. Most notes come from the internet and book. Just do a summary.一�
 # 理论学习
 ## 数据分析理论
 ### 1.分析流程
-<br>确定问题-->分解问题-->评估-->决策<br>
+确定问题-->分解问题-->评估-->决策<br>
 
 ## 统计学理论
-
-
-
+### 1.直方图
+长方形面积代表频数<br>
+频数密度=频数/组距
 
 # 方法学习
 ## 数据读取和存储
