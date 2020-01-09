@@ -12,6 +12,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.一�
   - [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
   - [五、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
   - [六、数据的可视化](#数据的可视化)
+  - [七、SQL操作](#SQL笔记)
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总](#推荐资料)
@@ -381,6 +382,19 @@ plt.ylabel(u'销量')
 plt.barh(range(len(num)), num, tick_label=name)
 
 plt.show()
+```
+## SQL笔记
++ mysql的登陆方式
+```sql
+1.本地登录MySQL
+命令：mysql -u root -p   //root是用户名，输入这条命令按回车键后系统会提示你输入密码
+
+2.指定端口号登录MySQL数据库
+将以上命令：mysql -u root -p改为 mysql -u root -p  -P 3306  即可，注意指定端口的字母P为大写，
+而标识密码的p为小写。MySQL默认端口号为3306
+
+3.指定IP地址和端口号登录MySQL数据库
+命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
 
 ## 名词解释
