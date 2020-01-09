@@ -12,7 +12,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.一�
   - [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
   - [五、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
   - [六、数据的可视化](#数据的可视化)
-  - [七、SQL操作](#SQL笔记)
+  - [七、SQL笔记](#SQL笔记)
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总](#推荐资料)
