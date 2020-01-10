@@ -1,5 +1,5 @@
 # Data-analysis-and-mining
-Study notes. Most notes come from the internet and book. Just do a summary.一位数据分析，数据挖掘师的成长笔记
+Study notes. Most notes come from the internet and book. Just do a summary.数据分析，数据挖掘相关
 # 目录
 - [理论学习](#理论学习)
   - [一、数据分析理论](#数据分析理论)
