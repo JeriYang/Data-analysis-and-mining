@@ -20,7 +20,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
   - [八、Python学习笔记](#Python学习笔记)
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
-- [附录3、推荐资料汇总](#推荐资料)
+- [附录3、推荐资料汇总(附下载链接o)](#推荐资料)
 # 理论学习
 ## 数据分析理论
 ### 1.分析流程
