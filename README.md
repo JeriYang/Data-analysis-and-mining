@@ -499,5 +499,5 @@ plt.show()
 
 ## 推荐资料
 + 书籍：
-  + 1.《深入浅出数据分析》-head first: [下载链接](https://github.com/JeriYang/Data-analysis-and-mining/blob/master/books/head%20first%20%E7%BB%9F%E8%AE%A1%E5%AD%A6.pdf)
-  + 2.《深入浅出统计学》-head first: [下载链接](https://github.com/JeriYang/Data-analysis-and-mining/blob/master/books/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%88%E7%BE%8E%EF%BC%89%E5%AE%8C%E6%95%B4%E4%B8%AD%E6%96%87%E7%89%88.pdf)
+  + 1.《深入浅出数据分析》-head first: [下载链接](https://github.com/JeriYang/Data-analysis-and-mining/blob/master/books/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%EF%BC%88%E7%BE%8E%EF%BC%89%E5%AE%8C%E6%95%B4%E4%B8%AD%E6%96%87%E7%89%88.pdf)
+  + 2.《深入浅出统计学》-head first: [下载链接](https://github.com/JeriYang/Data-analysis-and-mining/blob/master/books/head%20first%20%E7%BB%9F%E8%AE%A1%E5%AD%A6.pdf)
