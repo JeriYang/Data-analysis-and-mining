@@ -445,7 +445,7 @@ plt.show()
 # 数组元素的索引系列，是说，在原来数组中的索引。
 # 在这个例子里应该是[2,4,0,1,3].
 
-# 方法1:
+# 方法1:稳定排序，效率较低
 In [1]: a = [3,4,1,7,2]
 
 In [2]: enumerate(a)
@@ -462,11 +462,15 @@ Out[5]: [(2, 1), (4, 2), (0, 3), (1, 4), (3, 7)]
 In [6]: [index for index, value in sorted(enumerate(a), key=itemgetter(1))]
 Out[6]: [2, 4, 0, 1, 3]
 
-# 大杀器，方法2：
+# 方法2： 不稳定排序
 In [7]: import numpy as np
 
 In [8]: np.argsort([3,4,1,7,2])
 Out[8]: array([2, 4, 0, 1, 3])
+
+# 方法3:稳定排序，效率最高，仔细理解
+n = len(a)
+li = sorted(range(n),key=lambda i: a[i]) #排序[0,n),0对应a[0]
 ```
 
 ## 名词解释
