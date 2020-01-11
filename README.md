@@ -16,7 +16,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
   - [四、数据的可视化](#数据的可视化)
   - [五、SQL笔记](#SQL笔记)
   - [六、Python学习笔记](#Python学习笔记)
-    - [1、python排序，保留索引值](#常用格式转换)
+    - [1、python排序，保留索引值](#python保留索引值排序)
     - [2、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
     - [3、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
   
@@ -301,7 +301,7 @@ plt.show()
 命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
 ## Python学习笔记
-### python排序，保留索引值
+### python保留索引值排序
 ```py
 # 比如对a = [3,4,1,7,2]用a.sort()排序得到a = [1,2,3,4,7]，请问如何得到排序后的
 # 数组元素的索引系列，是说，在原来数组中的索引。
