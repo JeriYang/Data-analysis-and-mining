@@ -13,11 +13,13 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
   - [一、数据读取和存储](#数据读取和存储)
   - [二、数据的预览](#数据的预览)
   - [三、数据的清洗](#数据的清洗)
-  - [四、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
-  - [五、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
-  - [六、数据的可视化](#数据的可视化)
-  - [七、SQL笔记](#SQL笔记)
-  - [八、Python学习笔记](#Python学习笔记)
+  - [四、数据的可视化](#数据的可视化)
+  - [五、SQL笔记](#SQL笔记)
+  - [六、Python学习笔记](#Python学习笔记)
+    - [1、python排序，保留索引值](#常用格式转换)
+    - [2、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
+    - [3、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
+  
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
 - [附录3、推荐资料汇总(附下载链接o)](#推荐资料)
@@ -215,147 +217,7 @@ amazon_data = pd.merge(left=amazon_data,right=price,on='ProductId')
   <br>
   pd.concat([df1, df2], axis=1, join='inner') 横向合并，按索引取交集。
 
-## 常用格式转换
-+ 1.list to others
-```py
-# list
-data = [[2000, 'Ohino', 1.5],
-        [2001, 'Ohino', 1.7]]  # type(data) 为 list
 
-# (1).list to pandas.series, data对应list,index对于单列时，可以没有
-import pandas as pd
-ser = pd.Series(data, index = ['one', 'two'])
-#单列数据拼接时：定义列名和数据
-df['new_name']=ser
-
-# (2).list to pandas.dataframe
-df = pd.DataFrame(data, index = ['one', 'two'], columns = ['year', 'state', 'pop'])
-
-# (3).list to numpy.ndarray
-import numpy as np
-ndarray = np.array(data)
-```
-+ 2.ndarray to others
-```py
-# (1).array to dataframe, index为索引，columns为列名
-import pandas as pd
-pdNum = pd.DataFrame(ndarray, index = ['one', 'two'], columns = ['year', 'state', 'pop'])
-
-# (2).ndarray to list
-import numpy as np
-#定义一个numpy.ndarray
-array=np.array([1,2,3,4,5,6])
-#转为list
-list=array.tolist()
-
-```
-+ 3.pd.DataFrame to others
-```py
-# dataframe
-import pandas as pd
-data = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), columns=['a', 'b', 'c'])
-
-# (1).dataframe to array
-arr = data.values
-
-# (2).dataframe to dict 
-dict = data.to_dict()
-
-# (3).dataframe to list
-train_data = np.array(data) #np.ndarray()
-train_x_list=train_data.tolist() #list
-
-```
-+ 4.dict to others
-```py
-import numpy as np
-import pandas as pd
-from pandas import Series, DataFrame
-
-# dict
-data = { 'name': ['Li', 'Zhang', 'Wang'],
-         'year': [2000, 2001, 2002]}  # type(data) 为 dict
-         
-# (1) dict to series
-# 若不指定 index，data 的 key 充当 Series 的 index
-ser = Series(data)
-print('ser\n', ser)
-
-# (2) dict to dataframe
-# 若不指定 columns，data 的 key 充当 DataFrame 的 columns
-df = DataFrame(data)
-print('df\n', df)
-```
-
-## [地图热力图](https://www.xz577.com/j/40495.html)
-+ 1.首先安装对应的python模块
-```
-$ pip install pyecharts==0.5.10
-$ pip install echarts-countries-pypkg
-$ pip install echarts-china-provinces-pypkg
-$ pip install echarts-china-cities-pypkg
-$ pip install echarts-china-counties-pypkg
-$ pip install pyecharts-snapshot
-```
-
-+ 2.世界地图热力图
-```py
-from pyecharts import Map
- 
-value = [95.1, 23.2, 43.3, 66.4, 88.5]
-attr = ["China", "Canada", "Brazil", "Russia", "United States"]
-map0 = Map("世界地图示例", width=1200, height=600)
-map0.add("世界地图", attr, value, maptype="world", is_visualmap=True, visual_text_color='#000')
-map0.render(path="世界地图.html")
-```
-
-+ 3.中国地图热力图
-```py
-from pyecharts import Map
- 
-province_distribution = {'河南': 45.23, '北京': 37.56, '河北': 21, '辽宁': 12, '江西': 6, '上海': 20, '安徽': 10, '江苏': 16, '湖南': 9,'浙江': 13, '海南': 2, '广东': 22, '湖北': 8, '黑龙江': 11, '澳门': 1, '陕西': 11, '四川': 7, '内蒙古': 3, '重庆': 3,'云南': 6, '贵州': 2, '吉林': 3, '山西': 12, '山东': 11, '福建': 4, '青海': 1, '天津': 1,'其他': 1}
-provice = list(province_distribution.keys())
-values = list(province_distribution.values())
-map = Map("中国地图", '中国地图', width=1200, height=600)
-map.add("", provice, values, visual_range=[0, 50], maptype='china', is_visualmap=True,
-  visual_text_color='#000')
-map.render(path="中国地图.html")
-```
-
-+ 4.省市地图热力图
-```py
-from pyecharts import Map
- 
-map2 = Map("贵州地图", '贵州', width=1200, height=600)
-city = ['贵阳市', '六盘水市', '遵义市', '安顺市', '毕节市', '铜仁市', '黔西南布依族苗族自治州', '黔东南苗族侗族自治州', '黔南布依族苗族自治州']
-values2 = [1.07, 3.85, 6.38, 8.21, 2.53, 4.37, 9.38, 4.29, 6.1]
-map2.add('贵州', city, values2, visual_range=[1, 10], maptype='贵州', is_visualmap=True, visual_text_color='#000')
- 
-map2.render(path="贵州地图.html")
-```
-+ 5.区县地图
-```py
-from pyecharts import Map
-quxian = ['观山湖区', '云岩区', '南明区', '花溪区', '乌当区', '白云区', '修文县', '息烽县', '开阳县', '清镇市']
-values3 = [3, 5, 7, 8, 2, 4, 7, 8, 2, 4]
- 
-map3 = Map("贵阳地图", "贵阳", width=1200, height=600)
-map3.add("贵阳", quxian, values3, visual_range=[1, 10], maptype='贵阳', is_visualmap=True)
-map3.render(path="贵阳地图.html")
-```
-
-+ 5.全国主要城市空气质量热力图
-```py
-from pyecharts import Geo
- 
-keys = ['上海', '北京', '合肥', '哈尔滨', '广州', '成都', '无锡', '杭州', '武汉', '深圳', '西安', '郑州', '重庆', '长沙', '贵阳', '乌鲁木齐']
-values = [4.07, 1.85, 4.38, 2.21, 3.53, 4.37, 1.38, 4.29, 4.1, 1.31, 3.92, 4.47, 2.40, 3.60, 1.2, 3.7]
- 
-geo = Geo("全国主要城市空气质量热力图", "data from pm2.5", title_color="#fff",title_pos="left", width=1200, height=600,background_color='#404a59')
- 
-geo.add("空气质量热力图", keys, values, visual_range=[0, 5], type='effectScatter',visual_text_color="#fff", symbol_size=15,is_visualmap=True, is_roam=True) # type有scatter, effectScatter, heatmap三种模式可选，可根据自己的需求选择对应的图表模式
-geo.render(path="全国主要城市空气质量热力图.html")
-```
 ## 数据的可视化
 python实现
 + 中文字体问题解决方法
@@ -439,7 +301,7 @@ plt.show()
 命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
 ## Python学习笔记
-+ python排序，保留索引值
+### python排序，保留索引值
 ```py
 # 比如对a = [3,4,1,7,2]用a.sort()排序得到a = [1,2,3,4,7]，请问如何得到排序后的
 # 数组元素的索引系列，是说，在原来数组中的索引。
@@ -471,6 +333,147 @@ Out[8]: array([2, 4, 0, 1, 3])
 # 方法3:稳定排序，效率最高，仔细理解
 n = len(a)
 li = sorted(range(n),key=lambda i: a[i]) #排序[0,n),0对应a[0]
+```
+### 常用格式转换
++ 1.list to others
+```py
+# list
+data = [[2000, 'Ohino', 1.5],
+        [2001, 'Ohino', 1.7]]  # type(data) 为 list
+
+# (1).list to pandas.series, data对应list,index对于单列时，可以没有
+import pandas as pd
+ser = pd.Series(data, index = ['one', 'two'])
+#单列数据拼接时：定义列名和数据
+df['new_name']=ser
+
+# (2).list to pandas.dataframe
+df = pd.DataFrame(data, index = ['one', 'two'], columns = ['year', 'state', 'pop'])
+
+# (3).list to numpy.ndarray
+import numpy as np
+ndarray = np.array(data)
+```
++ 2.ndarray to others
+```py
+# (1).array to dataframe, index为索引，columns为列名
+import pandas as pd
+pdNum = pd.DataFrame(ndarray, index = ['one', 'two'], columns = ['year', 'state', 'pop'])
+
+# (2).ndarray to list
+import numpy as np
+#定义一个numpy.ndarray
+array=np.array([1,2,3,4,5,6])
+#转为list
+list=array.tolist()
+
+```
++ 3.pd.DataFrame to others
+```py
+# dataframe
+import pandas as pd
+data = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), columns=['a', 'b', 'c'])
+
+# (1).dataframe to array
+arr = data.values
+
+# (2).dataframe to dict 
+dict = data.to_dict()
+
+# (3).dataframe to list
+train_data = np.array(data) #np.ndarray()
+train_x_list=train_data.tolist() #list
+
+```
++ 4.dict to others
+```py
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+# dict
+data = { 'name': ['Li', 'Zhang', 'Wang'],
+         'year': [2000, 2001, 2002]}  # type(data) 为 dict
+         
+# (1) dict to series
+# 若不指定 index，data 的 key 充当 Series 的 index
+ser = Series(data)
+print('ser\n', ser)
+
+# (2) dict to dataframe
+# 若不指定 columns，data 的 key 充当 DataFrame 的 columns
+df = DataFrame(data)
+print('df\n', df)
+```
+
+### [地图热力图](https://www.xz577.com/j/40495.html)
++ 1.首先安装对应的python模块
+```
+$ pip install pyecharts==0.5.10
+$ pip install echarts-countries-pypkg
+$ pip install echarts-china-provinces-pypkg
+$ pip install echarts-china-cities-pypkg
+$ pip install echarts-china-counties-pypkg
+$ pip install pyecharts-snapshot
+```
+
++ 2.世界地图热力图
+```py
+from pyecharts import Map
+ 
+value = [95.1, 23.2, 43.3, 66.4, 88.5]
+attr = ["China", "Canada", "Brazil", "Russia", "United States"]
+map0 = Map("世界地图示例", width=1200, height=600)
+map0.add("世界地图", attr, value, maptype="world", is_visualmap=True, visual_text_color='#000')
+map0.render(path="世界地图.html")
+```
+
++ 3.中国地图热力图
+```py
+from pyecharts import Map
+ 
+province_distribution = {'河南': 45.23, '北京': 37.56, '河北': 21, '辽宁': 12, '江西': 6, '上海': 20, '安徽': 10, '江苏': 16, '湖南': 9,'浙江': 13, '海南': 2, '广东': 22, '湖北': 8, '黑龙江': 11, '澳门': 1, '陕西': 11, '四川': 7, '内蒙古': 3, '重庆': 3,'云南': 6, '贵州': 2, '吉林': 3, '山西': 12, '山东': 11, '福建': 4, '青海': 1, '天津': 1,'其他': 1}
+provice = list(province_distribution.keys())
+values = list(province_distribution.values())
+map = Map("中国地图", '中国地图', width=1200, height=600)
+map.add("", provice, values, visual_range=[0, 50], maptype='china', is_visualmap=True,
+  visual_text_color='#000')
+map.render(path="中国地图.html")
+```
+
++ 4.省市地图热力图
+```py
+from pyecharts import Map
+ 
+map2 = Map("贵州地图", '贵州', width=1200, height=600)
+city = ['贵阳市', '六盘水市', '遵义市', '安顺市', '毕节市', '铜仁市', '黔西南布依族苗族自治州', '黔东南苗族侗族自治州', '黔南布依族苗族自治州']
+values2 = [1.07, 3.85, 6.38, 8.21, 2.53, 4.37, 9.38, 4.29, 6.1]
+map2.add('贵州', city, values2, visual_range=[1, 10], maptype='贵州', is_visualmap=True, visual_text_color='#000')
+ 
+map2.render(path="贵州地图.html")
+```
++ 5.区县地图
+```py
+from pyecharts import Map
+quxian = ['观山湖区', '云岩区', '南明区', '花溪区', '乌当区', '白云区', '修文县', '息烽县', '开阳县', '清镇市']
+values3 = [3, 5, 7, 8, 2, 4, 7, 8, 2, 4]
+ 
+map3 = Map("贵阳地图", "贵阳", width=1200, height=600)
+map3.add("贵阳", quxian, values3, visual_range=[1, 10], maptype='贵阳', is_visualmap=True)
+map3.render(path="贵阳地图.html")
+```
+
++ 5.全国主要城市空气质量热力图
+```py
+from pyecharts import Geo
+ 
+keys = ['上海', '北京', '合肥', '哈尔滨', '广州', '成都', '无锡', '杭州', '武汉', '深圳', '西安', '郑州', '重庆', '长沙', '贵阳', '乌鲁木齐']
+values = [4.07, 1.85, 4.38, 2.21, 3.53, 4.37, 1.38, 4.29, 4.1, 1.31, 3.92, 4.47, 2.40, 3.60, 1.2, 3.7]
+ 
+geo = Geo("全国主要城市空气质量热力图", "data from pm2.5", title_color="#fff",title_pos="left", width=1200, height=600,background_color='#404a59')
+ 
+geo.add("空气质量热力图", keys, values, visual_range=[0, 5], type='effectScatter',visual_text_color="#fff", symbol_size=15,is_visualmap=True, is_roam=True) # type有scatter, effectScatter, heatmap三种模式可选，可根据自己的需求选择对应的图表模式
+geo.render(path="全国主要城市空气质量热力图.html")
 ```
 
 ## 名词解释
