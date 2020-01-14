@@ -19,6 +19,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [1、python排序，保留索引值](#python保留索引值排序)
     - [2、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
     - [3、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
+    - [4、Python 几种取整的方法](#取整方法)
   
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
@@ -404,6 +405,47 @@ print('ser\n', ser)
 # 若不指定 columns，data 的 key 充当 DataFrame 的 columns
 df = DataFrame(data)
 print('df\n', df)
+```
+### 取整方法
+1、向下取整<br>
+向下取整直接用内建的 int() 函数即可：<br>
+```py
+>>> a = 3.75
+>>> int(a)
+3
+```
+<br>
+2、四舍五入<br>
+对数字进行四舍五入用 round() 函数：<br>
+```py
+>>> round(3.25); round(4.85)
+3.0
+5.0
+```
+<br>
+3、向上取整<br>
+向上取整需要用到 math 模块中的 ceil() 方法:<br>
+```py
+>>> import math
+>>> math.ceil(3.25)
+4.0
+>>> math.ceil(3.75)
+4.0
+>>> math.ceil(4.85)
+5.0
+```
+<br>
+4、分别取整数部分和小数部分
+用 math 模块中的 modf() 方法，该方法返回一个包含小数部分和整数部分的元组：<br>
+存在浮点精度问题<br>
+```py
+>>> import math
+>>> math.modf(3.25)
+(0.25, 3.0)
+>>> math.modf(3.75)
+(0.75, 3.0)
+>>> math.modf(4.2)
+(0.20000000000000018, 4.0)
 ```
 
 ### [地图热力图](https://www.xz577.com/j/40495.html)
