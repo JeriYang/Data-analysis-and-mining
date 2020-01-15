@@ -8,6 +8,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [2、数据离散性](#离散性)
     - [3、概率计算](#概率计算)
     - [4、期望笔记](#期望笔记)
+    - [5、几何分布，二项分布，泊松分布](#几种概率分布)
 
 - [方法学习](#方法学习)
   - [一、数据读取和存储](#数据读取和存储)
@@ -78,6 +79,9 @@ P(A|B) = P(A); P(A n B)=P(A) * P(B);<br>
 + 3.通用公式:<br>
 E(aX+b)=aE(X) + b<br>
 Var(aX+b) = a^2Var(X)<br>
+
+### 几种概率分布
+
 
 # 方法学习
 ## 数据读取和存储
