@@ -45,7 +45,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
 + 4.箱线图：
 显示数据的全距，四分位距和中位数<br>
 + 5.方差
-方差=求和(x^2)/n - u^2 (化简公式，u为均值)<br>
+方差=求和(x<sup>2</sup>)/n - u<sup>2</sup> (化简公式，u为均值)<br>
 + 6.标准差('西格玛'):典型值与均值的距离，用于量度数据的分散性<br>
 + 7.标准分(z分):对不同数据集中的数值进行比较的一种方法，z=(x-u)/西格玛
 ### 概率计算
@@ -78,11 +78,11 @@ P(A|B) = P(A); P(A n B)=P(A) * P(B);<br>
 + 2.期望方差Var(x)=E(x-u)^2
 + 3.通用公式:<br>
 E(aX+b)=aE(X) + b<br>
-Var(aX+b) = a^2Var(X)<br>
+Var(aX+b) = a<sup>2</sup>Var(X)<br>
 
 ### 几种概率分布
 + 1.几何分布:<br>
-P(X=r)=q^(r-1) * p^1<br>
+P(X=r)=q<sup>(r-1)</sup> * p<sup>1</sup><br>
 条件:(1)相互独立 (2)每次试验都有成功、失败的可能，且每次试验概率相等 (3)关注点为取得一次成功需进行多少次试验<br>
 结论:(1)任何几何分布的众数永远为1
 
