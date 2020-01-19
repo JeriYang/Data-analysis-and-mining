@@ -75,7 +75,7 @@ P(A|B) = P(A); P(A n B)=P(A) * P(B);<br>
 
 ### 期望笔记
 + 1.期望E(x)=求和xP(X=x)
-+ 2.期望方差Var(x)=E(x-u)^2
++ 2.期望方差Var(x)=E(x-u)<sup>2</sup>
 + 3.通用公式:<br>
 E(aX+b)=aE(X) + b<br>
 Var(aX+b) = a<sup>2</sup>Var(X)<br>
@@ -87,6 +87,7 @@ P(X=r)=q<sup>(r-1)</sup> * p<sup>1</sup><br>
 结论:(1)任何几何分布的众数永远为1
 
 + 2.二项分布:<br>
+P(X=r)=<sup>n</sup>C<sub>r</sub> * p<sup>r</sup> * q<sup>n-r</sup>
 
 
 # 方法学习
