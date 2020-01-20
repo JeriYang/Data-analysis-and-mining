@@ -79,6 +79,8 @@ P(A|B) = P(A); P(A n B)=P(A) * P(B);<br>
 + 3.通用公式:<br>
 E(aX+b)=aE(X) + b<br>
 Var(aX+b) = a<sup>2</sup>Var(X)<br>
++ 4.排列组合:<br>
+<img src="https://github.com/JeriYang/Data-analysis-and-mining/blob/master/img/JeriYang/Data-analysis-and-mining/blob/master/img/arrange_comb.png" alt="GitHub" title="GitHub,Social Coding" width="100" height="50" />
 
 ### 几种概率分布
 + 1.几何分布:<br>
