@@ -330,16 +330,16 @@ plt.show()
 + 知乎参考链接(https://zhuanlan.zhihu.com/p/61805956)
 + (1)基础：
   + select 选择
-  + join/left join/right join/union 表连接
+  + join/ left join/ right join/ union 表连接
 + (2)最常用:
   + distinct 去重
-  + having/where 筛选
-  + max/min/sum/count + group by 聚合
-  + order by/sort by 排序
+  + having/ where 筛选
+  + max/ min/sum/ count + group by 聚合
+  + order by/ sort by 排序
   + case when...  end 条件
-  + substr/concat/split 字符串
+  + substr/ concat/ split 字符串
 + (3)进阶:
-  + to_date/datediff() 日期函数
+  + to_date/ datediff() 日期函数
   + row_number() 分组函数
   + percentitle 取百分比
 
@@ -360,9 +360,9 @@ plt.show()
   + Where子句在聚合前先筛选记录（即where在group by 和 having子句前）；having在聚合后再使用
   + LIMIT限制行，DESC 降序，ASC升序
   + CASE WHEN 条件1 THEN value1 ELSE NULL END（其中else可省，end不可省）
-  + CAST用法：常用于String/int/double型的转换
+  + CAST用法：常用于String/ int/ double型的转换
   + 了解concat(A,B);substr(str,0,len)等用法：合并字符，截取字符串从0开始长为len的字符
-+ 3.进阶基础:
++ 3.进阶:
   + 排序:
     + rank()
     + dense_rank()
@@ -375,7 +375,7 @@ plt.show()
   + 时间:
     + to_date 时间字符串->时间类型
     + datediff() 以天为单位，计算差值
-    + 常见时间提取函数year()/month()/day()/hour()/minute()/second()
+    + 常见时间提取函数year()/ month()/ day()/ hour()/ minute()/ second()
 + 4.数据库SQL调优的方式总结:
   + 1)创建索引
   + 2)避免在索引上进行计算
