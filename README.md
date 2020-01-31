@@ -321,11 +321,11 @@ plt.show()
 ```
 
 + SQL必会(https://zhuanlan.zhihu.com/p/61805956)
-```mermaid
-A[SQL必会] -->|1| B[基础]
-A -->|2| C[最常用]
-A -->|3| D[进阶]
-B -->|one| 
+```
+graph LR
+A[SQL必会] - - >B[基础]
+A - - >C[最常用]
+A - - >D[进阶]
 ```
   + (1)基本：
     + select 选择
