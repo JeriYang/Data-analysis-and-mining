@@ -16,6 +16,9 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
   - [三、数据的清洗](#数据的清洗)
   - [四、数据的可视化](#数据的可视化)
   - [五、SQL笔记](#SQL笔记)
+    - [1、mysql的登陆方式](#mysql的登陆方式)
+    - [2、SQL必会列表](#SQL必会列表)
+    - [3、SQL必会内容](#SQL必会内容)
   - [六、Python学习笔记](#Python学习笔记)
     - [1、python排序，保留索引值](#python保留索引值排序)
     - [2、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
@@ -307,7 +310,7 @@ plt.barh(range(len(num)), num, tick_label=name)
 plt.show()
 ```
 ## SQL笔记
-+ mysql的登陆方式
+### mysql的登陆方式
 ```sql
 1.本地登录MySQL
 命令：mysql -u root -p   //root是用户名，输入这条命令按回车键后系统会提示你输入密码
@@ -319,32 +322,55 @@ plt.show()
 3.指定IP地址和端口号登录MySQL数据库
 命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
+### SQL必会列表
++ 知乎参考链接(https://zhuanlan.zhihu.com/p/61805956)
++ (1)基础：
+  + select 选择
+  + join/left join/right join/union 表连接
++ (2)最常用:
+  + distinct 去重
+  + having/where 筛选
+  + max/min/sum/count + group by 聚合
+  + order by/sort by 排序
+  + case when...  end 条件
+  + substr/concat/split 字符串
++ (3)进阶:
+  + to_date/datediff() 日期函数
+  + row_number() 分组函数
+  + percentitle 取百分比
 
-+ SQL必会列表(https://zhuanlan.zhihu.com/p/61805956)
-  + (1)基础：
-    + select 选择
-    + join/left join/right join/union 表连接
-  + (2)最常用:
-    + distinct 去重
-    + having/where 筛选
-    + max/min/sum/count + group by 聚合
-    + order by/sort by 排序
-    + case when...  end 条件
-    + substr/concat/split 字符串
-  + (3)进阶:
-    + to_date/datediff() 日期函数
-    + row_number() 分组函数
-    + percentitle 取百分比
-
-+ SQL必会内容
-  + 1.基础:
-    + hive的join 默认为inner join(左右表均可匹配的记录)
-    + left join: 左连接，以左表为准，补NULL
-    + right join: 右连接，以右表为准，补NULL
-    + full outer join: 全连接，左右补NULL，保留所有
-    + union和union all均基于列合并多张表数据，
-      + 其中union 会去重，效率较低；
-      + union all 直接追加(无特殊情况用union all)
+### SQL必会内容
++ 1.基础:
+  + hive的join 默认为inner join(左右表均可匹配的记录)
+  + left join: 左连接，以左表为准，补NULL
+  + right join: 右连接，以右表为准，补NULL
+  + full outer join: 全连接，左右补NULL，保留所有
+  + union和union all均基于列合并多张表数据，
+    + union 会去重，效率较低；
+    + union all 直接追加(无特殊情况用union all)
++ 2.常用:
+  + Distinct和Groub by原理比较:
+    + Distinct原理：将全部内容存储在一个hash结构里，最后通过计算hash结构中key的个数得到结果（空间换时间）
+    + Group by原理：排序(时间换空间)
+    + 数据离散时，使用Group by，集中时使用Distinct
+  + Where子句在聚合前先筛选记录（即where在group by 和 having子句前）；having在聚合后再使用
+  + LIMIT限制行，DESC 降序，ASC升序
+  + CASE WHEN 条件1 THEN value1 ELSE NULL END（其中else可省，end不可省）
+  + CAST用法：常用于String/int/double型的转换
+  + 了解concat(A,B);substr(str,0,len)等用法：合并字符，截取字符串从0开始长为len的字符
++ 3.进阶基础:
+  + 排序:
+    + rank()
+    + dense_rank()
+    + row_number()
+    + eg: SELECT *, row_number() over (partition by deptid order by salary DESC) as rank from table
+      <br> 按deptid分组，再按salary倒序编号
+  + 百分比:
+    + Hive的percentile(col,p) col为int, p取0-1之间的小数
+  + 时间:
+    + to_d
+    + 
++ 4.数据库SQL调优的方式总结:
 ## Python学习笔记
 ### python保留索引值排序
 ```py
