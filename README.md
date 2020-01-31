@@ -320,17 +320,31 @@ plt.show()
 命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
 
-+ SQL必会(https://zhuanlan.zhihu.com/p/61805956)
-```
-graph LR
-A[SQL必会] - - >B[基础]
-A - - >C[最常用]
-A - - >D[进阶]
-```
-  + (1)基本：
++ SQL必会列表(https://zhuanlan.zhihu.com/p/61805956)
+  + (1)基础：
     + select 选择
     + join/left join/right join/union 表连接
-  + (2)常用
+  + (2)最常用:
+    + distinct 去重
+    + having/where 筛选
+    + max/min/sum/count + group by 聚合
+    + order by/sort by 排序
+    + case when...  end 条件
+    + substr/concat/split 字符串
+  + (3)进阶:
+    + to_date/datediff() 日期函数
+    + row_number() 分组函数
+    + percentitle 取百分比
+
++ SQL必会内容
+  + 1.基础:
+    + hive的join 默认为inner join(左右表均可匹配的记录)
+    + left join: 左连接，以左表为准，补NULL
+    + right join: 右连接，以右表为准，补NULL
+    + full outer join: 全连接，左右补NULL，保留所有
+    + union和union all均基于列合并多张表数据，
+      + 其中union 会去重，效率较低；
+      + union all 直接追加(无特殊情况用union all)
 ## Python学习笔记
 ### python保留索引值排序
 ```py
