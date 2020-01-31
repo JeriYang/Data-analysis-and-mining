@@ -319,6 +319,18 @@ plt.show()
 3.指定IP地址和端口号登录MySQL数据库
 命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
+
++ SQL必会(https://zhuanlan.zhihu.com/p/61805956)
+```mermaid
+A[SQL必会] -->|1| B[基础]
+A -->|2| C[最常用]
+A -->|3| D[进阶]
+B -->|one| 
+```
+  + (1)基本：
+    + select 选择
+    + join/left join/right join/union 表连接
+  + (2)常用
 ## Python学习笔记
 ### python保留索引值排序
 ```py
