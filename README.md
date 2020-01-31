@@ -24,6 +24,10 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [2、list, ndarray, df, series等常用格式相互转换](#常用格式转换)
     - [3、python echarts画热力图(世界地图，省市地图，区县地图)](#地图热力图)
     - [4、Python 几种取整的方法](#取整方法)
+  - [七、大数据笔记](#大数据学习笔记)
+    - [1、Hadoop生态](#Hadoop生态)
+    - [2、Hadoop中涉及对排序](#Hadoop排序)
+    - [3、Spark(内存分布式计算)](#Spark)
   
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
@@ -367,10 +371,30 @@ plt.show()
       <br> 按deptid分组，再按salary倒序编号
   + 百分比:
     + Hive的percentile(col,p) col为int, p取0-1之间的小数
+    + 中位数: percentile_approx(hot_page_photo_play_cnt,0.5)   分位数；跑多个分位数时加arra
   + 时间:
-    + to_d
-    + 
+    + to_date 时间字符串->时间类型
+    + datediff() 以天为单位，计算差值
+    + 常见时间提取函数year()/month()/day()/hour()/minute()/second()
 + 4.数据库SQL调优的方式总结:
+  + 1)创建索引
+  + 2)避免在索引上进行计算
+    + where salary > 11000/22 性能高于 salary*22 > 11000
+  + 3)使用预编译查询
+    + 对查询语句进行查询优化
+  + 4)调整where子句中对顺序，表连接在where之前
+  + 5)尽量将多条SQL语句压缩到一句SQL
+  + 6)多有where，少用having
+  + 7)使用表对别名
+  + 8)union all 替换 union
+  + 9)使用 临时表 暂存结果
+  + 10)避免全表扫描(https://blog.csdn.net/illusion_you/article/details/79097287):
+    + 模糊查询 like
+    + 查询条件中含有is null的select语句
+    + 查询条件中使用了不等于操作符（<>、!=）的select语句
+    + or语句使用不当会引起全表扫描
+    + 使用组合索引，如果查询条件中没有前导列，那么索引不起作用，会引起全表扫描
+
 ## Python学习笔记
 ### python保留索引值排序
 ```py
@@ -587,6 +611,12 @@ geo = Geo("全国主要城市空气质量热力图", "data from pm2.5", title_co
 geo.add("空气质量热力图", keys, values, visual_range=[0, 5], type='effectScatter',visual_text_color="#fff", symbol_size=15,is_visualmap=True, is_roam=True) # type有scatter, effectScatter, heatmap三种模式可选，可根据自己的需求选择对应的图表模式
 geo.render(path="全国主要城市空气质量热力图.html")
 ```
+## 大数据学习笔记
+### Hadoop生态
+
+### Hadoop排序
+
+### Spark
 
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
