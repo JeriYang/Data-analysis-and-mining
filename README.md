@@ -613,12 +613,59 @@ geo.render(path="全国主要城市空气质量热力图.html")
 ```
 ## 大数据学习笔记
 ### Hadoop生态
++ 大数据分类
+  + 批式大数据(bath):历史大数据
+  + 流式大数据(streaming):实时大数据
++ 相关知识
+  + 三驾马车:HDFS, MapReduce, Hbase
+  + Spark Streaming: 是构建在SPark基础之上的流式大数据框架，类似的有storm, Flink
 + 组成:
+  + Ambari(安装、部署、配置和管理工具)
+  + Zoo keeper(分布式协作服务)
+  + Hbase(实时分布式数据库)
+  + Hive(数据仓库)
+  + Pig(数据流处理)
+  + Mahout(数据挖掘库)
+  + Flume(日志收集工具)
+  + MapReduce(分布式计算框架)
+  + HDFS(分布式文件系统)
+  + Sqoop(数据库ETL工具)
++ 重点:
+  + (1)HDFS:
+    + Client: 切分文件
+    + NameNode
+    + DataNode
+    + Secondary NameNode
+  + (2) MapReduce:
+    + Map端: 输入数据分片之后，每一个节点会对应一个Map任务
+    + Reduce端: 将不同节点的map结果进行合并
+  + (3) Hbase特点:
+    + 大
+    + 无模式
+    + 面向列
+    + 稀疏
+    + 数据多版本
+    + 数据类型单一，均为string
 
-
-### Hadoop排序
-
+### Hadoop排序(MapReduce)
++ Map Task: n快排->归并
+  + 环形缓冲区--(达到阈值)-->快速排序---->放入磁盘--(处理结束，归并排序)-->结束
++ Reduce Task: n归并->归并
+  + 环形缓冲区--(达到阈值)-->放入磁盘--(达到阈值)-->归并排序合成一个更大的文件--(数据拷贝完后)-->对内存磁盘所有数据进行一次归并
+  
 ### Spark
++ 内存分布式计算，读取比磁盘IO流对Hadoop快100倍
++ Hadoop为离线计算，Spark为实时计算
++ Spark core(调度中心):
+  + 包括任务调动，内存管理，容错管理及存储管理
+  + 包括:
+    + 有向无环图DAG对分布式并行计算框架
+    + 容错分式数据RDD
++ pyspark使用:
+  + (1)导包 import
+  + (2)配置conf SparkConf
+  + (3)会话 sc:SparkContent
+  + (4)sc.stop
 
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
