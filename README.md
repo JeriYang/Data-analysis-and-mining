@@ -327,7 +327,7 @@ plt.show()
 命令格式为：mysql -h ip -u root -p -P 3306例如：mysql -h 127.0.0.1 -u root -p -P 3306
 ```
 ### SQL必会列表
-+ 知乎参考链接(https://zhuanlan.zhihu.com/p/61805956)
++ [知乎参考链接](https://zhuanlan.zhihu.com/p/61805956)
 + (1)基础：
   + select 选择
   + join/ left join/ right join/ union 表连接
@@ -388,7 +388,7 @@ plt.show()
   + 7)使用表对别名
   + 8)union all 替换 union
   + 9)使用 临时表 暂存结果
-  + 10)避免全表扫描(https://blog.csdn.net/illusion_you/article/details/79097287):
+  + 10)[避免全表扫描](https://blog.csdn.net/illusion_you/article/details/79097287):
     + 模糊查询 like
     + 查询条件中含有is null的select语句
     + 查询条件中使用了不等于操作符（<>、!=）的select语句
@@ -687,19 +687,24 @@ geo.render(path="全国主要城市空气质量热力图.html")
     <br>利用统计或者机器学习方法分析各个触点对最终转化的影响程度。
     <br>与启发式归因相比，它更加客观，不受到使用者偏好的影响。
     <br>常见的算法有logistics回归、生存模型、probabilistic模型、markov模型等。
-+ OR值
-+ RR值
-+ PAR
-+ PAF
++ OR值: odds ratio
++ RR值: relative risk
++ PAR: Population Attributable Risk
++ PAF: Population Attributable Fraction
 + [拆分法（以及常用的方法)](https://zhuanlan.zhihu.com/p/52279855)
 + [Cvr转化率](https://baike.baidu.com/item/CVR/20215345)
-+ ROI:
++ ROI: Return On Investment, 是指通过投资而应返回的价值，即企业从一项投资活动中得到的经济回报，通俗点来说就是我们获得的收益和投入成本的比值。
+  + ROI投资回报率：投资回报率）ROI=［（收入－成本）／投入］＊100% ，它表达的意思其实是ROI=收回价值 / 成本投入 *100%
+  + 很多人会误认为这里的 收入-成本=利润 但其实不是 它所表达的是 收回了多少，而非利润，更准确点说就是销售收入。
 + 成本利润率:
+  + 成本利润率= 利润（赚了多少） / 投入（成本），反映的是成本和利润的关系，衡量我的利润是否再生投入资本（资金回流），这个是站在资金回转时效的角度去看的。
 + 销售利润率:
+  + 销售利润率= 利润（赚了多少）/ 销售（销售收入），反映销售额和利润的关系，衡量利润情况是否达到目标需求，这是站在一盘生意的情况上看的。
 + 投资回报率:
-+ DPA:
-+ OKR:
-+ BI:
+  + 投资回报率（ROI）=产出（销售收入）/ 投入（成本），反映投入和产出的关系，衡量我这个投资（花了多少钱）值不值得，能给到我多少价值的东西（非单单的利润），这个是站在投资的角度或长远生意上看的。
++ DPA: 说白了就是动态创意，根据用户的行为，分析出兴趣；然后推用户感兴趣的广告（商品）
++ OKR: Objectives and Key Results, 即目标与关键成果法，是一套明确和跟踪目标及其完成情况的管理工具和方法
++ [BI](https://www.finebi.com/2019/bifenxi): Business Intelligence 商务智能。广义上，BI是指商务智能的一套整体解决方案；狭义上，BI是指可视化BI 产品，例如FineBI。
 
 ## 参考产品和思路
 + 常见流程：<br>
