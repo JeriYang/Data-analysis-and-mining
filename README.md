@@ -8,7 +8,8 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [2、数据离散性](#离散性)
     - [3、概率计算](#概率计算)
     - [4、期望笔记](#期望笔记)
-    - [5、几何分布，二项分布，泊松分布](#几种概率分布)
+    - [5、几何分布，二项分布，泊松分布](#离散概率分布)
+    - [6、正态分布](#连续型概率分布)
 
 - [方法学习](#方法学习)
   - [一、数据读取和存储](#数据读取和存储)
@@ -89,7 +90,7 @@ Var(aX+b) = a<sup>2</sup>Var(X)<br>
 + 4.排列组合:<br>
 <img src="https://github.com/JeriYang/Data-analysis-and-mining/blob/master/img/arrange_comb.png" alt="img1" title="jery_img1" width="600" height="300" />
 
-### 几种概率分布
+### 离散概率分布
 + 1.几何分布:<br>
   + 应用条件:
     + (1)相互独立 
@@ -131,8 +132,13 @@ Var(aX+b) = a<sup>2</sup>Var(X)<br>
     + E(X) = λ
     + Var(X) = λ
   + 如果 X ~ Po(λx), 如果 Y ~ Po(λy), 且X,Y是相互独立的，则:
-    + X + Y ～ Po(λ<sup>x</sup> + λ<sup>y</sup>)
+    + X + Y ～ Po(λ<sub>x</sub> + λ<sub>y</sub>)
   + 如果 X ~ B(n,p) ,其中n足够大,p足够小, 则可将该分布近似看作X ~ Po(np)
+
+### 连续型概率分布
++ 1.正态分布概念
+  + X ～ N(μ, σ<sup>2</sup>)
+  + μ指出曲线的中央位置，σ<sup>2</sup>指出分散性。在实践中，σ<sup>2</sup>越大，正态分布的曲线越扁平，越宽。
 
 
 # 方法学习
