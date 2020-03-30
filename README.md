@@ -29,6 +29,9 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [1、Hadoop生态](#Hadoop生态)
     - [2、Hadoop中涉及对排序](#Hadoop排序)
     - [3、Spark(内存分布式计算)](#Spark)
+    - [4、HDFS](#HDFS)
+    - [5、MapReduce](#MapReduce)
+    
   
 - [附录1、名词解释](#名词解释)
 - [附录2、参考产品和思路](#参考产品和思路)
@@ -704,6 +707,23 @@ geo.render(path="全国主要城市空气质量热力图.html")
   + (3)会话 sc:SparkContent
   + (4)sc.stop
 
+### HDFS
++ 学习链接(https://zhuanlan.zhihu.com/p/21249592)
++ HDFS存储文件原理: 分片冗余，本地校验，协同校验纠错。
++ HDFS和文件系统相似，用fsck指令可以显示块信息:% hadoop fsck / -files -blocks
++ 没有namenode，文件系统会崩溃。解决方案：(1).远程备份 (2).本地备份，运行一个备用的namenode
++ 常用命令：
+```
+本地文件复制：  %hadoop fs -copyFromLocal localFile.dir hdfs.dir
+在HDFS创建目录：%hadoop fs -mkdir name.dir
+在HDFS查看目录：%hadoop fs -ls name.dir
+在HDFS删除目录：%hadoop fs -r mr name.dir
+```
+
+### MapReduce
++ 学习链接(https://zhuanlan.zhihu.com/p/78542030)
++ Input Split 数据阶段
+  + 
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
 + [DAU](https://www.zhihu.com/question/24007425):日活(Daily Active Users)，单日活跃用户量，反应产品短期用户活跃度
