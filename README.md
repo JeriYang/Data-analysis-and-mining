@@ -708,8 +708,16 @@ geo.render(path="全国主要城市空气质量热力图.html")
   + (4)sc.stop
 
 ### HDFS
-（hadoop分布式文件系统）
-+ 学习链接(https://zhuanlan.zhihu.com/p/21249592)
+（hadoop分布式文件系统）是hadoop体系中数据存储管理的基础。他是一个高度容错的系统，能检测和应对硬件故障。
++ client：
+  + 切分文件，访问HDFS，与那么弄得交互，获取文件位置信息，与DataNode交互，读取和写入数据。
++ namenode：
+  + master节点，在hadoop1.x中只有一个，管理HDFS的名称空间和数据块映射信息，配置副本策略，处理客户 端请求。
++ DataNode：
+  + slave节点，存储实际的数据，汇报存储信息给namenode。
++ secondary namenode：
+  + 辅助namenode，分担其工作量：定期合并fsimage和fsedits，推送给namenode；紧急情况下和辅助恢复namenode，但其并非namenode的热备。
++ [学习链接](https://zhuanlan.zhihu.com/p/21249592)
 + HDFS存储文件原理: 分片冗余，本地校验，协同校验纠错。
 + HDFS和文件系统相似，用fsck指令可以显示块信息:% hadoop fsck / -files -blocks
 + 没有namenode，文件系统会崩溃。解决方案：(1).远程备份 (2).本地备份，运行一个备用的namenode
@@ -723,8 +731,18 @@ geo.render(path="全国主要城市空气质量热力图.html")
 
 ### MapReduce
 （分布式计算框架）
-+ 学习链接1(https://zhuanlan.zhihu.com/p/78542030)
-+ 学习链接2(https://zhuanlan.zhihu.com/p/55884610)
+mapreduce是一种计算模型，用于处理大数据量的计算。其中map对应数据集上的独立元素进行指定的操作，生成键-值对形式中间，reduce则对中间结果中相同的键的所有值进行规约，以得到最终结果。
+
++ jobtracker：
+  + master节点，只有一个，管理所有作业，任务/作业的监控，错误处理等，将任务分解成一系列任务，并分派给tasktracker。
++ tacktracker：
+  + slave节点，运行 map task和reducetask；并与jobtracker交互，汇报任务状态。
++ map task：
+  + 解析每条数据记录，传递给用户编写的map（）并执行，将输出结果写入到本地磁盘（如果为map—only作业，则直接写入HDFS）。
++ reduce task：
+  + 从map 它深刻地执行结果中，远程读取输入数据，对数据进行排序，将数据分组传递给用户编写的reduce函数执行。
++ [学习链接1](https://zhuanlan.zhihu.com/p/78542030)
++ [学习链接2](https://zhuanlan.zhihu.com/p/55884610)
 + Input Split 或 Read 数据阶段(切片)
   + 如何优化小文件切片问题：
     + 最好的办法：在数据处理系统的最前端（预处理、采集），就将小文件先进行合并了，再传到 HDFS 中去。
