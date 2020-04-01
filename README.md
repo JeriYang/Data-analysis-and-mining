@@ -757,6 +757,12 @@ mapreduce是一种计算模型，用于处理大数据量的计算。其中map�
 （基于hadoop的数据仓库）
 由Facebook开源，最初用于解决海量结构化的日志数据统计问题。<br>
 hive定于了一种类似sql的查询语言（hql）将sql转化为mapreduce任务在hadoop上执行。
++ 数据库与数据仓库的区别对比: [参考知乎链接](https://www.zhihu.com/question/20623931)
+  + 数据库：MySQL, Oracle, SqlServer等
+    + 传统的关系型数据库的主要应用，主要是基本的、日常的事务处理，例如银行交易。
+  + 数据仓库：AWS Redshift, Greenplum, Hive等
+    + 数据仓库系统的主要应用主要是OLAP（On-Line Analytical Processing），支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。
++ [Hive体系架构](https://blog.csdn.net/zhoudaxia/article/details/8855937)
 
 ### Hbase
 （分布式列存数据库）
