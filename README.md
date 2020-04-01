@@ -708,6 +708,7 @@ geo.render(path="全国主要城市空气质量热力图.html")
   + (4)sc.stop
 
 ### HDFS
+（hadoop分布式文件系统）
 + 学习链接(https://zhuanlan.zhihu.com/p/21249592)
 + HDFS存储文件原理: 分片冗余，本地校验，协同校验纠错。
 + HDFS和文件系统相似，用fsck指令可以显示块信息:% hadoop fsck / -files -blocks
@@ -721,9 +722,18 @@ geo.render(path="全国主要城市空气质量热力图.html")
 ```
 
 ### MapReduce
-+ 学习链接(https://zhuanlan.zhihu.com/p/78542030)
-+ Input Split 数据阶段
-  + 
+（分布式计算框架）
++ 学习链接1(https://zhuanlan.zhihu.com/p/78542030)
++ 学习链接2(https://zhuanlan.zhihu.com/p/55884610)
++ Input Split 或 Read 数据阶段(切片)
+  + 如何优化小文件切片问题：
+    + 最好的办法：在数据处理系统的最前端（预处理、采集），就将小文件先进行合并了，再传到 HDFS 中去。
+    + 补救措施：如果已经存在大量的小文件在HDFS中了，可以使用另一种 InputFormat 组件CombineFileInputFormat 去解决，它的切片方式跟 TextInputFormat 不同，它会将多个小文件从逻辑上规划到一个切片中，这样，多个小文件就可以交给一个 Map 任务去处理了。
++ Map阶段
++ Shuffle 阶段
++ Reduce 阶段
++ Output 阶段
+
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
 + [DAU](https://www.zhihu.com/question/24007425):日活(Daily Active Users)，单日活跃用户量，反应产品短期用户活跃度
