@@ -29,8 +29,10 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [1、Hadoop生态](#Hadoop生态)
     - [2、Hadoop中涉及对排序](#Hadoop排序)
     - [3、Spark(内存分布式计算)](#Spark)
-    - [4、HDFS](#HDFS)
-    - [5、MapReduce](#MapReduce)
+    - [4、HDFS（hadoop分布式文件系统）](#HDFS)
+    - [5、MapReduce（分布式计算框架）](#MapReduce)
+    - [6、Hive（基于hadoop的数据仓库）](#Hive)
+    - [7、Hbase（分布式列存数据库）](#Hbase)
     
   
 - [附录1、名词解释](#名词解释)
@@ -751,6 +753,14 @@ mapreduce是一种计算模型，用于处理大数据量的计算。其中map�
 + Shuffle 阶段
 + Reduce 阶段
 + Output 阶段
+### Hive
+（基于hadoop的数据仓库）
+由Facebook开源，最初用于解决海量结构化的日志数据统计问题。<br>
+hive定于了一种类似sql的查询语言（hql）将sql转化为mapreduce任务在hadoop上执行。
+
+### Hbase
+（分布式列存数据库）
+hbase是一个针对结构化数据的可伸缩，高可靠，高性能，分布式和面向列的动态模式数据库。和传统关系型数据库不同，hbase采用了bigtable的数据模型：增强了稀疏排序映射表（key/value）。其中，键由行关键字，列关键字和时间戳构成，hbase提供了对大规模数据的随机，实时读写访问，同时，hbase中保存的数据可以使用mapreduce来处理，它将数据存储和并行计算完美结合在一起。
 
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
