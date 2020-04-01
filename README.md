@@ -27,7 +27,7 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [4、Python 几种取整的方法](#取整方法)
   - [七、大数据笔记](#大数据学习笔记)
     - [1、Hadoop生态](#Hadoop生态)
-    - [2、Hadoop中涉及对排序](#Hadoop排序)
+    - [2、Hadoop中涉及的排序](#Hadoop排序)
     - [3、Spark(内存分布式计算)](#Spark)
     - [4、HDFS（hadoop分布式文件系统）](#HDFS)
     - [5、MapReduce（分布式计算框架）](#MapReduce)
@@ -763,6 +763,12 @@ hive定于了一种类似sql的查询语言（hql）将sql转化为mapreduce任�
   + 数据仓库：AWS Redshift, Greenplum, Hive等
     + 数据仓库系统的主要应用主要是OLAP（On-Line Analytical Processing），支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。
 + [Hive体系架构](https://blog.csdn.net/zhoudaxia/article/details/8855937)
++ Hive特点： 
+  + (0)Hive构建在Hadoop之上，
+  + (1)HQL中对查询语句的解释、优化、生成查询计划是由Hive完成的
+  + (2)所有的数据都是存储在Hadoop中
+  + (3)查询计划被转化为MapReduce任务，在Hadoop中执行（有些查询没有MR任务，如：select * from table）
+  + (4)Hadoop和Hive都是用UTF-8编码的
 
 ### Hbase
 （分布式列存数据库）
