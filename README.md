@@ -812,11 +812,21 @@ hbase是一个针对结构化数据的可伸缩，高可靠，高性能，分布
   + 2.0环境的MapReduce依赖于YARN框架，在YARN框架启动后，MapReduce在需要运行的时候把任务提交给YARN框架，让YARN框架来分配资源择机运行。
 + MapReduce原理<br/>
 MapReduce是解决问题并行任务的一种模型，将一个可拆解的任务分散到多个计算节点进行计算，最后合并计算结果。
-  + 见‘七’中内容
-
-
+  + 流程：
+    + 输入文件——>Map——>中间结果——>Reduce——>结果
+  + Map处理过程：
+    + 第一步：读取输入文件
+    + 第二步：输出构造一个key-value文件(这一步很重要，大部分逻辑在Reduce中完成，所以在Map的部分实际要完成对Reduce操作内容的迎合性构造，让Reduce能够处理以Key-Value对形成的文件内容)
+  + Reduce处理过程：
+    + 第一步：读入中间结果的文件
+    + 第二步：对一个Key的文本部分进行处理(不同的key通常会被分给不同的Reduce程序实例处理)
+    + 第三步：合并输出结果，输出到结果文件
 
 ### Spark框架
+Spark框架是一个快速且API丰富的内存计算框架。Spark采用Scala语言编写，Scala是基于JVM的语言，性能开销小。<br/>
+在Spark中，一切计算都是基于[RDD](http://www.meicx.com/?p=8336)句柄(Resilient Distributed Dataset 弹性分布式数据集，是Spark中的基本抽象)来进行操作的。RDD就像一个数据容器，可以有输入口，可以有输出口。<br/>
+在内存中，Spark使用[Tachyon](https://www.cnblogs.com/brucemengbm/p/7072531.html)——一种类似于内存中的HDFS的内存分布式存储框架，这样使得读写速度有了极大的提升。
+
 ### 分布式列存储框架
 ### PrestoDB_CLI
 
