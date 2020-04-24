@@ -33,6 +33,12 @@ Study notes. Most notes come from the internet and book. Just do a summary.数�
     - [5、MapReduce（分布式计算框架）](#MapReduce)
     - [6、Hive（基于hadoop的数据仓库）](#Hive)
     - [7、Hbase（分布式列存数据库）](#Hbase)
+  - [八、大数据框架简介](#大数据框架简介)
+    - [1、著名框架汇总](#著名框架汇总)
+    - [2、Hadoop框架](#Hadoop框架)
+    - [3、Spark框架](#Spark框架)
+    - [4、分布式列存储框架](#分布式列存储框架)
+    - [5、PrestoDB_CLI](#PrestoDB_CLI)
     
   
 - [附录1、名词解释](#名词解释)
@@ -773,6 +779,35 @@ hive定于了一种类似sql的查询语言（hql）将sql转化为mapreduce任�
 ### Hbase
 （分布式列存数据库）
 hbase是一个针对结构化数据的可伸缩，高可靠，高性能，分布式和面向列的动态模式数据库。和传统关系型数据库不同，hbase采用了bigtable的数据模型：增强了稀疏排序映射表（key/value）。其中，键由行关键字，列关键字和时间戳构成，hbase提供了对大规模数据的随机，实时读写访问，同时，hbase中保存的数据可以使用mapreduce来处理，它将数据存储和并行计算完美结合在一起。
+
+## 大数据框架简介
+### 著名框架汇总
++ 分类：
+  + 大数据计算框架
+  + 大数据存储框架
++ 大数据计算框架：
+  + 一类是执行一次就结束的、对计算时间要求不高的离线计算框架
+    + 离线计算多用于模型的训练和数据的预处理，最经典的就是Hadoop的MapReduce
+  + 另一种是对处理时间有严格要求的实时计算框架
+    + 实时计算框架要求立即返回计算结果，快速响应请求，如Storm、Spark Streaming框架。
+    + 其多用于简单的累加计数和基于训练好的模型进行分类等操作
++ 大数据存储框架：
+  + 经典的Hadoop的HDFS就具备了动态扩容以及冗余化存储（存储多份数据）的能力。
+  + 这保证了数据源增大时，用户仍然可以像操作本地磁盘一样操作HDFS,又可以保证计算结果的安全性，它是大数据存储中最主流的解决方法之一。
+### Hadoop框架
++ Hadoop2.0 核心框架部分
+  + (1) Hadoop Common
+    + 这是Hadoop的核心功能，是对其他的Hadoop模块做支撑的，里面包含了大量的对底层文件、网络访问、对数据类型的支持、以及对象的序列化、反序列化操作的支持等。
+  + (2) Hadoop Distributed File System(HDFS)
+    + Hadoop 分布式文件系统，用于存储大量的数据。
+  + (3) Hadoop YARN
+    + 一个任务调度和资源管理的框架。
+  + (4) Hadoop MapReduce
+    + 基于YARN的并行大数据处理组件。
+
+### Spark框架
+### 分布式列存储框架
+### PrestoDB_CLI
 
 ## 名词解释
 + [DNU](https://www.jianshu.com/p/3018da7b29cb)：Daily New User，日新增用户。
