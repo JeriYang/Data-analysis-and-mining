@@ -823,9 +823,20 @@ MapReduce是解决问题并行任务的一种模型，将一个可拆解的任�
     + 第三步：合并输出结果，输出到结果文件
 
 ### Spark框架
-Spark框架是一个快速且API丰富的内存计算框架。Spark采用Scala语言编写，Scala是基于JVM的语言，性能开销小。<br/>
-在Spark中，一切计算都是基于[RDD](http://www.meicx.com/?p=8336)句柄(Resilient Distributed Dataset 弹性分布式数据集，是Spark中的基本抽象)来进行操作的。RDD就像一个数据容器，可以有输入口，可以有输出口。<br/>
-在内存中，Spark使用[Tachyon](https://www.cnblogs.com/brucemengbm/p/7072531.html)——一种类似于内存中的HDFS的内存分布式存储框架，这样使得读写速度有了极大的提升。
+1.Spark框架是一个快速且API丰富的内存计算框架。Spark采用Scala语言编写，Scala是基于JVM的语言，性能开销小。<br/>
+2.在Spark中，一切计算都是基于[RDD](http://www.meicx.com/?p=8336)句柄(Resilient Distributed Dataset 弹性分布式数据集，是Spark中的基本抽象)来进行操作的。RDD就像一个数据容器，可以有输入口，可以有输出口。<br/>
+3.在内存中，Spark使用[Tachyon](https://www.cnblogs.com/brucemengbm/p/7072531.html)——一种类似于内存中的HDFS的内存分布式存储框架，这样使得读写速度有了极大的提升。
++ Spark 组件
+  + (1) Spark Core
+    + Spark核心组件。指Spark的核心功能，包括任务调度，内存分配回收、RDD操作，API处理等。
+  + (2) Spark SQL 
+    + Spark1.0版本取代HQL，使用SQL操作Spark RDD降低了Spark编程的难度。
+  + (3) Spark Streaming
+    + 流式计算组件。在Spark Streaming中，流处理实际用的是Micro-Batch的方式，即微批处理。
+  + (4) MLlib
+    + 机器学习组件，提供了大量的可集群化的算法，包括聚类，分类，逻辑回归，协同过滤等。
+  + (5) GraphX
+    + 是可以进行集群化的图形计算和图形挖掘组件。
 
 ### 分布式列存储框架
 ### PrestoDB_CLI
