@@ -810,8 +810,10 @@ hbase是一个针对结构化数据的可伸缩，高可靠，高性能，分布
 + Hadoop1.0和2.0的区别：
   + 1.0环境的MapReduce是直接运行的
   + 2.0环境的MapReduce依赖于YARN框架，在YARN框架启动后，MapReduce在需要运行的时候把任务提交给YARN框架，让YARN框架来分配资源择机运行。
-+ MapReduce原理
++ MapReduce原理<br/>
 MapReduce是解决问题并行任务的一种模型，将一个可拆解的任务分散到多个计算节点进行计算，最后合并计算结果。
+  + 见‘七’中内容
+
 
 
 ### Spark框架
