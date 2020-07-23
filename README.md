@@ -736,10 +736,11 @@ geo.render(path="全国主要城市空气质量热力图.html")
 + DataNode：
   + slave节点，存储实际的数据，汇报存储信息给namenode。
   + 文件被切分成固定大小的数据块：默认数据块大小为128MB(Hadoop2.x)
-  + 
 + secondary namenode(SNN)：
   + 核心工作：辅助namenode，分担其工作量：定期合并fsimage和fsedits，推送给namenode；紧急情况下和辅助恢复namenode，但其并非namenode的热备。
   + 注意：核心功能不是备份，NN高可用时没有SNN(高可用时可动态增加DataNode)
+  + SNN合并流程:<br>
+<img src="https://github.com/JeriYang/Data-analysis-and-mining/blob/master/img/SNN合并流程." alt="img1" title="jery_img1" width="600" height="300" />
 + [学习链接](https://zhuanlan.zhihu.com/p/21249592)
 + HDFS存储文件原理: 分片冗余，本地校验，协同校验纠错。
 + HDFS和文件系统相似，用fsck指令可以显示块信息:% hadoop fsck / -files -blocks
