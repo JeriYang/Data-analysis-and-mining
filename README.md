@@ -717,14 +717,29 @@ geo.render(path="全国主要城市空气质量热力图.html")
 
 ### HDFS
 （hadoop分布式文件系统）是hadoop体系中数据存储管理的基础。他是一个高度容错的系统，能检测和应对硬件故障。
-+ client：
++ Block:
+  + haoop1.0是64MB，hadoop2.0是128MB。
++ client(客户端)：
   + 切分文件，访问HDFS，与那么弄得交互，获取文件位置信息，与DataNode交互，读取和写入数据。
-+ namenode：
-  + master节点，在hadoop1.x中只有一个，管理HDFS的名称空间和数据块映射信息，配置副本策略，处理客户 端请求。
++ namenode(NN)：
+  + master节点，在hadoop1.x中只有一个，管理HDFS的名称空间和数据块映射信息，配置副本策略，处理客户端请求(主要功能：接受客户端的读写服务)。
+  + nameNode 保存metadata信息包括：
+    + 文件ownership和permissions 
+    + 文件包含哪些块 
+    + Block保存在哪个DataNode（由DataNode启动时上报） 
+  + 两个重要文件:
+    + fsimage: 元数据镜像文件(保存文件系统的目录树)
+    + edits: 元数据操作日志(针对目录树的修改操作),被写入共享存储系统中, 比如NFS、JournalNode
++ 元数据metaData(数据的数据):
+  + 内存中保存一份最新的元数据镜像
+  + 内存中的镜像= fsimage + edits
 + DataNode：
   + slave节点，存储实际的数据，汇报存储信息给namenode。
-+ secondary namenode：
-  + 辅助namenode，分担其工作量：定期合并fsimage和fsedits，推送给namenode；紧急情况下和辅助恢复namenode，但其并非namenode的热备。
+  + 文件被切分成固定大小的数据块：默认数据块大小为128MB(Hadoop2.x)
+  + 
++ secondary namenode(SNN)：
+  + 核心工作：辅助namenode，分担其工作量：定期合并fsimage和fsedits，推送给namenode；紧急情况下和辅助恢复namenode，但其并非namenode的热备。
+  + 注意：核心功能不是备份，NN高可用时没有SNN(高可用时可动态增加DataNode)
 + [学习链接](https://zhuanlan.zhihu.com/p/21249592)
 + HDFS存储文件原理: 分片冗余，本地校验，协同校验纠错。
 + HDFS和文件系统相似，用fsck指令可以显示块信息:% hadoop fsck / -files -blocks
