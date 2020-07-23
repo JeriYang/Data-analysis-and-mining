@@ -749,6 +749,20 @@ geo.render(path="全国主要城市空气质量热力图.html")
 + HDFS存储文件时，首先把文件切分为多个block，然后生成metaData，用于记录block的存储和备份位置(原paper是64MB,hadoop2.0是128MB)，然后完成文件的存储。
 + 常用命令：
 ```
+HDFS基本命令:
+Hdfs dfs –chmod 777 /
+hdfs dfs -mkdir /usr
+hdfs dfs -du -h /user （查看文件大小）
+
+上传文件:
+hdfs dfs –put …
+
+下载文件:
+hdfs dfs -get /data/jk/test1.txt  /opt/software/
+ 
+显示文件:
+hdfs dfs –ls  /
+
 本地文件复制：  %hadoop fs -copyFromLocal localFile.dir hdfs.dir
 在HDFS创建目录：%hadoop fs -mkdir name.dir
 在HDFS查看目录：%hadoop fs -ls name.dir
