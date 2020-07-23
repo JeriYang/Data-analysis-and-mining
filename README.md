@@ -661,6 +661,12 @@ geo.render(path="全国主要城市空气质量热力图.html")
 ```
 ## 大数据学习笔记
 ### Hadoop生态
++ 常用操作：
+```
+初始化hdfs: hdfs namenode -format
+启动hadoop: start-dfs.sh
+查看hadoop情况: jps
+```
 + 大数据分类
   + 批式大数据(bath):历史大数据
   + 流式大数据(streaming):实时大数据
@@ -719,6 +725,11 @@ geo.render(path="全国主要城市空气质量热力图.html")
 （hadoop分布式文件系统）是hadoop体系中数据存储管理的基础。他是一个高度容错的系统，能检测和应对硬件故障。
 + Block:
   + haoop1.0是64MB，hadoop2.0是128MB。
+  + block放置策略
+    + 第一个副本：放置在上传文件的DN；如果是集群外提交，则随机挑选一台磁盘不太满，CPU不太忙的节点。 
+    + 第二个副本：放置在于第一个副本不同的机架的节点上。 
+    + 第三个副本：与第二个副本相同机架的节点。 
+    + 更多副本：随机节点 
 + client(客户端)：
   + 切分文件，访问HDFS，与那么弄得交互，获取文件位置信息，与DataNode交互，读取和写入数据。
 + namenode(NN)：
@@ -734,8 +745,9 @@ geo.render(path="全国主要城市空气质量热力图.html")
   + 内存中保存一份最新的元数据镜像
   + 内存中的镜像= fsimage + edits
 + DataNode：
-  + slave节点，存储实际的数据，汇报存储信息给namenode。
+  + slave节点，存储数据（Block） ，汇报存储信息给namenode, 启动DN线程的时候会向NN汇报block信息 。
   + 文件被切分成固定大小的数据块：默认数据块大小为128MB(Hadoop2.x)
+  + 通过向NN发送心跳保持与其联系（3秒一次），如果NN 10分钟没有收到DN的心跳，则认为其已经lost，并copy其上的block到其它DN 
 + secondary namenode(SNN)：
   + 核心工作：辅助namenode，分担其工作量：定期合并fsimage和fsedits，推送给namenode；紧急情况下和辅助恢复namenode，但其并非namenode的热备。
   + 注意：核心功能不是备份，NN高可用时没有SNN(高可用时可动态增加DataNode)
