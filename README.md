@@ -729,6 +729,7 @@ geo.render(path="全国主要城市空气质量热力图.html")
 + HDFS存储文件原理: 分片冗余，本地校验，协同校验纠错。
 + HDFS和文件系统相似，用fsck指令可以显示块信息:% hadoop fsck / -files -blocks
 + 没有namenode，文件系统会崩溃。解决方案：(1).远程备份 (2).本地备份，运行一个备用的namenode
++ HDFS存储文件时，首先把文件切分为多个block，然后生成metaData，用于记录block的存储和备份位置(原paper是64MB,hadoop2.0是128MB)，然后完成文件的存储。
 + 常用命令：
 ```
 本地文件复制：  %hadoop fs -copyFromLocal localFile.dir hdfs.dir
